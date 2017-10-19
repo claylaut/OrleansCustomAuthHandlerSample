@@ -12,8 +12,8 @@ I've created this sample so it will be easily testable.
 * Launch Project (F5)
 
 ## Extra Information:
-* I've created `AuthHandler` which inherits from `: AuthenticationHandler<JwtBearerOptions>`.
-* This is throwing an exception during runtime in `OrleansConfig.cs`  at `Line 41`.
+* I've created `AuthHandler` which inherits from `: AuthenticationHandler<JwtBearerOptions>` which is not being used.
+* This is throwing a `Orleans.CodeGenerator.CodeGenerationException` during runtime in `OrleansConfig.cs` at `Line 41`.
 
 ## Exception Details:
 ```
@@ -23,3 +23,6 @@ Exc level 0: Orleans.CodeGenerator.CodeGenerationException: (1,3052): error CS02
    at Orleans.CodeGenerator.RoslynCodeGenerator.CompileAndLoad(GeneratedSyntax generatedSyntax, Boolean emitDebugSymbols)
    at Orleans.CodeGenerator.RoslynCodeGenerator.GenerateAndLoadForAssemblies(Assembly[] inputs)	
 ```
+
+## Other
+If it will throw an exception at `Line 43` that `Orleans.Runtime.SiloUnavailableException: The target silo became unavailable for message:` it means that the applications is working fine.
